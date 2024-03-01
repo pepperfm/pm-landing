@@ -6,8 +6,9 @@
         class="hover:text-primary underline underline-primary flex  items-center justify-center"
         external
         target="_blank"
-        to="https://t.me/pepper_fm">
-        <UIcon name="i-simple-icons-telegram"></UIcon>
+        to="https://t.me/pepper_fm"
+      >
+        <UIcon name="i-simple-icons-telegram" />
       </NuxtLink>
     </div>
   </div>

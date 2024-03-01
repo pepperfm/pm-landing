@@ -190,19 +190,19 @@ const jobs = [
           title="1 Месяц"
           description="Get started for free in development."
           price="1200"
-        ></PricingCard>
+        />
         <PricingCard
           title="1 Год"
           description="For bootstrappers and indie hackers."
           price="10000"
           scale
           highlight
-        ></PricingCard>
+        />
         <PricingCard
           title="1000 лет"
           description="Unlimited license for growing teams."
           price="999999"
-        ></PricingCard>
+        />
       </PricingGrid>
     </LandingSection>
 

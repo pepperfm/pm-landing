@@ -12,7 +12,7 @@ useServerSeoMeta({
 </script>
 
 <template>
-<!--  <MainHeader />-->
+  <MainHeader />
   <div class="min-h-[calc(100vh-60px)]">
     <NuxtPage />
   </div>
