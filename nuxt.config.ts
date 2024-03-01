@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'system',
   },
+  css: ['~/assets/css/main.css'],
   site: {
     url: 'https://psych-manager.ru/',
   },
