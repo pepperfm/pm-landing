@@ -6,6 +6,7 @@ defineOgImageScreenshot()
 definePageMeta({
   title: 'About',
 })
+const isYearly = ref(false)
 const techs = [
   {
     name: 'i-logos-php',
@@ -66,48 +67,6 @@ const techs = [
     name: 'i-logos-sentry-icon',
     title: 'Sentry',
     link: 'https://sentry.io/',
-  },
-]
-const jobs = [
-  {
-    title: 'simpatio.ru',
-    company: 'Simpatio',
-    link: 'https://simpatio.ru/',
-    svg: 'Simpatio',
-    heading: 'Maintaining current functionality and developing new features',
-    description: 'Rewrote the admin panel using Vue. Refactoring + writing API for the front-end in Vue.',
-  },
-  {
-    title: 'resanta.ru',
-    company: 'Resanta',
-    link: 'https://resanta.ru/',
-    svg: 'Resanta',
-    heading: 'Refactoring and supplementing an internal CRM admin panel',
-    description: 'There are many products (drills, saws, vacuum cleaners, grinding machines...). They have categories and subcategories, they have characteristics with values. All of this is packaged into boxes, then containers and loaded onto a ship for transportation according to contracts, which are drawn up for orders from different companies. 80% of the code was written in Laravel 5.7 with a query builder (no eloquent) + without adhering to MVC.',
-  },
-  {
-    title: 'game-insignt.ru',
-    company: 'Game Insight',
-    link: 'https://www.game-insight.com/en',
-    svg: 'GameInsight',
-    heading: 'Support and improvement of interactions between game servers/services (Helpshift, AppsFlyer, Flurry...) and internal services.',
-    description: 'Collection and processing of player data for handling by support agents. Also developed and maintained an internal service storing unified information about employees: information about the employee, which services are connected to him, which accesses are granted, equipment... Laravel Nova was used, plus data loading from Jira.',
-  },
-  {
-    title: 'rang.ai',
-    company: 'Ранг',
-    link: 'https://rang.ai/',
-    svg: 'Rang',
-    heading: 'Backend Developer',
-    description: 'Developing the back-end of an application in Laravel.',
-  },
-  {
-    title: 'qubeek.io',
-    company: 'Qubeek.io',
-    link: 'https://qubeek.io/',
-    svg: 'Qubeek',
-    heading: 'Backend Developer',
-    description: 'Outsourcing-development for state-owned companies.',
   },
 ]
 </script>
@@ -184,27 +143,47 @@ const jobs = [
         </div>
       </div>
     </LandingSection>
-    <LandingSection>
-      <PricingGrid>
+    <UContainer
+      class="flex flex-col items-center justify-center gap-10"
+    >
+      <!--      <PricingGrid> -->
+      <PricingToggle
+        v-model="isYearly" ggle class="max-w-xs"
+      />
+      <div>
         <PricingCard
-          title="1 Месяц"
-          description="Get started for free in development."
-          price="1200"
-        />
-        <PricingCard
-          title="1 Год"
-          description="For bootstrappers and indie hackers."
-          price="10000"
+          v-if="!isYearly"
+          title="Ежемесячно"
+          description="Стоимость месяца подписке при ежемесячной оплате"
+          price="1200₽"
+          cycle="/мес."
+          discount=""
+          :badge="{ label: 'Most popular' }"
+          :button="{ label: 'Buy now' }"
+          orientation="vertical"
+          align="bottom"
+          :features="['One developer', 'Unlimited projects', 'Unlimited minor & patch updates', 'Lifetime access']"
           scale
           highlight
         />
         <PricingCard
-          title="1000 лет"
-          description="Unlimited license for growing teams."
-          price="999999"
+          v-if="isYearly"
+          title="Ежегодно"
+          description="Стоимость месяца подписке при оплате за год"
+          price="1000₽"
+          cycle="/мес."
+          discount=""
+          :badge="{ label: 'Most popular' }"
+          :button="{ label: 'Buy now' }"
+          orientation="vertical"
+          align="bottom"
+          :features="['One developer', 'Unlimited projects', 'Unlimited minor & patch updates', 'Lifetime access']"
+          scale
+          highlight
         />
-      </PricingGrid>
-    </LandingSection>
+      </div>
+      <!--      </PricingGrid> -->
+    </UContainer>
 
     <LandingSection title="Additional info">
       <template #description>
